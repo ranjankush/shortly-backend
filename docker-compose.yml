@@ -1,0 +1,28 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 212215
+      MYSQL_DATABASE: urlshortnerdb
+    expose:
+      - "3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: url_shortner_app
+    ports:
+      - "8086:8085"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/urlshortnerdb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 212215
+      SERVER_PORT: 8085
