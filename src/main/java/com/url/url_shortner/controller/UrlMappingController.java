@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "https://shortmedot.netlify.app")
 @RestController
 @RequestMapping("/api/urls")
 @AllArgsConstructor
