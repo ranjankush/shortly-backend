@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 //@CrossOrigin(origins = "http://localhost:5173")
-@CrossOrigin(origins = "https://shortmedot.netlify.app")
+//@CrossOrigin(origins = "https://shortmedot.netlify.app")
 @RestController
 @AllArgsConstructor
 public class RedirectController {
