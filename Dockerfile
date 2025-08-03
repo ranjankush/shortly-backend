@@ -10,7 +10,7 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
 # Copy only the final jar from the build stage
-COPY --from=build /app/target/url-shortner-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/*.jar app.jar
 
 # Create a non-root user
 RUN addgroup --system spring && adduser --system --ingroup spring spring
